@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+
+    <!-- event prepay module -->
+    <package name="BtbTweet" type="Module" version="01.01.01">
+      <friendlyName>BtbTweet</friendlyName>
+      <description>BtbTweet displays twitter tweets on your portal</description>
+      <owner>
+        <name>Bite the Bullet</name>
+        <organization>Bite the Bullet</organization>
+        <url>http://www.bitethebullet.co.uk</url>
+        <email>bitethebullet.uk@gmail.com</email>
+      </owner>
+      <license> <![CDATA[
+        <p>BTB END USER LICENSE AGREEMENT (EULA)<br/>
+        This is a CONTRACT between you (either an individual or a single entity) and BTB, which covers your use of "BtbTweet" and related software components. All such software is referred to herein as the "Software Product." A software license issued to a designated user only by BTB or its authorized agents is required for each user of the Software Product. If you do not agree to the terms of this EULA, then do not install or use the Software Product or the Software Product License. By explicitly accepting this End-User License Agreement (EULA) you are acknowledging and agreeing to be bound by the following terms:</p>
+
+        <p>1. GRANT OF NON-EXCLUSIVE LICENSE<br/>
+        BTB grants you a non-exclusive, non-transferable right to use the Software Product on your DotNetNuke(DNN) installation based on your purchase history.</p>
+
+        <p>If you purchase STANDARD EDITION of the Software Product, you can use the Software Product on one DotNetNuke installation as long as you are not in violation of this agreement, A DNN installation is defined as a single DNN database which can host multiple child portals. These portals may have their own unique web addresses, but they are managed from a single DNN host.
+        If you purchased a PROFESSIONAL EDITION or ENTERPRISE EDITION you are granted a license to install the SOFTWARE PRODUCT on any number of web servers as long as you are not in violation of this agreement, and use it for a number of DotNetNuke installations (instance).</p>
+
+        <p>The source code is shipped with ENTERPRISE EDITION of the Software Product. When the source code is provided with the Software Product, BTB grants you the right to modify, alter, improve, or enhance the Software Product without limitation, except as described in this EULA.</p>
+
+        <p>Although rights to modification of the Software Product are granted by this EULA, you may not tamper with, alter, or use the Software Product in a way that disables, circumvents, or otherwise defeats its built-in licensing verification and enforcement capabilities. The right to modification of the Software Product also does not include the right to remove or alter any trademark, logo, copyright or other proprietary notice, legend, symbol or label in the Software Product.</p>
+
+        <p>Any modifications made to the Software Product will render it non-supportable by BTB.  You may, at your discretion, contact BTB about distribution of the altered Software Product, and if agreeable terms can be determined, the software product may be distributed according to the agreement. The altered Software Product will become supported by the party designated in the agreement between BTB and the user. Ownership of the altered SOFTWARE PRODUCT is transferred to the party designated in the agreement between BTB and the user. You may not distribute or redistribute changes made to the Software Product to anyone other than groups designated by the agreement between BTB and the user.  Contact BTB using the information included at the end of this document.
+        Although the source code for the Software Product may be included, you may not share, use, or reuse the knowledge or technologies in other applications without explicit approval from BTB.</p>
+
+        <p>You may make copies of the Software Product as is reasonably necessary for its use. Each copy must reproduce all copyright and other proprietary rights notices on or in the Software Product.</p>
+
+        <p>Each copy must reproduce all copyright and other proprietary rights notices on or in the Software Product License. You may not modify or create derivative copies of the Software Product License.</p>
+
+        <p>All rights not expressly granted to you are retained by BTB.</p>
+
+
+        <p>2. INTELLECTUAL PROPERTY RIGHTS RESERVED BY BTB<br/>
+        The Software Product is owned by BTB and is protected by UK and international copyright laws and treaties, as well as other intellectual property laws and treaties. You must not remove or alter any copyright notices on any copies of the Software Product.
+        This Software Product copy is licensed, not sold. You may not use, copy, or distribute the Software Product, except as granted by this EULA, without written authorization from BTB or its designated agents. Furthermore, this EULA does not grant you any rights in connection with any trademarks or service marks of BTB. BTB reserves all intellectual property rights, including copyrights, and trademark rights.</p>
+
+
+        <p>3. NO RIGHT TO TRANSFER<br/>
+        You may not rent, lease, lend, or in any way distribute or transfer any rights in this EULA or the Software Product to third parties without BTB's written approval, and subject to written agreement by the recipient of the terms of this EULA.</p>
+
+
+        <p>4. INDEMNIFICATION<br/>
+        You hereby agree to indemnify BTB against and hold harmless BTB from any claims, lawsuits or other losses that arise out of your breach of any provision of this EULA.</p>
+
+
+        <p>5. THIRD PARTY RIGHTS<br/>
+        Any software provided along with the Software Product that is associated with a separate license agreement is licensed to you under the terms of that license agreement. This license does not apply to those portions of the Software Product. Copies of these third party licenses are included in all copies of the Software Product.</p>
+
+
+        <p>6. SUPPORT SERVICES<br/>
+        BTB may provide you with support services related to the Software Product. Use of any such support services is governed by BTB policies and programs described in online documentation and/or other BTB-provided materials.</p>
+
+        <p>As part of these support services, BTB may make available bug lists, planned feature lists, and other supplemental informational materials. BTB MAKES NO WARRANTY OF ANY KIND FOR THESE MATERIALS AND ASSUMES NO LIABILITY WHATSOEVER FOR DAMAGES RESULTING FROM ANY USE OF THESE MATERIALS.  FURTHERMORE, YOU MAY NOT USE ANY MATERIALS PROVIDED IN THIS WAY TO SUPPORT ANY CLAIM MADE AGAINST BTB.</p>
+
+        <p>Any supplemental software code or related materials that BTB provides to you as part of the support services, in periodic updates to the Software Product or otherwise, is to be considered part of the Software Product and is subject to the terms and conditions of this EULA.</p>
+
+        <p>With respect to any technical information you provide to BTB as part of the support services, BTB may use such information for its business purposes without restriction, including product support and development. BTB will not use such technical information in a form that personally identifies you without first obtaining your permission.</p>
+
+
+        <p>7. TERMINATION WITHOUT PREJUDICE TO ANY OTHER RIGHTS<br/>
+        BTB may terminate this EULA if you fail to comply with any term or condition of this EULA. In such event, you must destroy all copies of the Software Product and Software Product Licenses.</p>
+
+
+        <p>8. NO WARRANTIES<br/>
+        YOU ACCEPT THE SOFTWARE PRODUCT AND SOFTWARE PRODUCT LICENSE "AS IS," AND BTB AND ITS THIRD PARTY SUPPLIERS AND LICENSORS MAKE NO WARRANTY AS TO ITS USE, PERFORMANCE, OR OTHERWISE. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, BTB AND ITS THIRD PARTY SUPPLIERS AND LICENSORS DISCLAIM ALL OTHER REPRESENTATIONS, WARRANTIES, AND CONDITIONS, EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OR CONDITIONS OF MERCHANTABILITY, SATISFACTORY QUALITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. THE ENTIRE RISK ARISING OUT OF USE OR PERFORMANCE OF THE SOFTWARE PRODUCT REMAINS WITH YOU.</p>
+
+
+        <p>9. LIMITATION OF LIABILITY<br/>
+        THIS LIMITATION OF LIABILITY IS TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW. IN NO EVENT SHALL BTB OR ITS THIRD PARTY SUPPLIERS AND LICENSORS BE LIABLE FOR ANY COSTS OF SUBSTITUTE PRODUCTS OR SERVICES, OR FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, OR LOSS OF BUSINESS INFORMATION) ARISING OUT OF THIS EULA OR THE USE OF OR INABILITY TO USE THE SOFTWARE PRODUCT OR THE FAILURE TO PROVIDE SUPPORT SERVICES, EVEN IF BTB HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN ANY CASE, BTB'S, AND ITS THIRD PARTY SUPPLIERS' AND LICENSORS', ENTIRE LIABILITY ARISING OUT OF THIS EULA SHALL BE LIMITED TO THE LESSER OF THE AMOUNT ACTUALLY PAID BY YOU FOR THE SOFTWARE PRODUCT OR THE PRODUCT LIST PRICE; PROVIDED, HOWEVER, THAT IF YOU HAVE ENTERED INTO A BTB SUPPORT SERVICES AGREEMENT, BTB'S ENTIRE LIABILITY REGARDING SUPPORT SERVICES SHALL BE GOVERNED BY THE TERMS OF THAT AGREEMENT.</p>
+
+
+        <p>10. HIGH RISK ACTIVITIES<br/>
+        The Software Product is not fault-tolerant and is not designed, manufactured or intended for use or resale as on-line control equipment in hazardous environments requiring fail-safe performance, such as in the operation of nuclear facilities, aircraft navigation or communication systems, air traffic control, direct life support machines, or weapons systems, in which the failure of the Software Product, or any software, tool, process, or service that was developed using the Software Product, could lead directly to death, personal injury, or severe physical or environmental damage ("High Risk Activities").  Accordingly, BTB and its suppliers and licensors specifically disclaim any express or implied warranty of fitness for High Risk Activities. You agree that BTB and its suppliers and licensors will not be liable for any claims or damages arising from the use of the Software Product, or any software, tool, process, or service that was developed using the Software Product, in such applications.</p>
+
+
+        <p>11. GOVERNING LAW; ENTIRE AGREEMENT; DISPUTE RESOLUTION<br/>
+        This EULA is governed by the laws of the UK, excluding the application of any conflict of law rules. The United Nations Convention on Contracts for the International Sale of Goods shall not apply.
+        This EULA is the entire agreement between BTB and you, and supersedes any other communications or advertising with respect to the Software Product. This EULA may be modified only by written agreement signed by authorized representatives of you and BTB.
+        Unless otherwise agreed in writing, all disputes relating to this EULA (except any dispute relating to intellectual property rights) shall be subject to final and binding arbitration in the State of Maryland, in accordance with the Licensing Agreement Arbitration Rules of the American Arbitration Association, with the losing party paying all costs of arbitration. Arbitration must be by a member of the American arbitration Association. If any dispute arises under this EULA, the prevailing party shall be reimbursed by the other party for any and all legal fees and costs associated therewith.</p>
+
+
+        <p>12. GENERAL<br/>
+        If any provision of this EULA is held invalid, the remainder of this EULA shall continue in full force and effect.
+        A waiver by either party of any term or condition of this EULA or any breach thereof, in any one instance, shall not waive such term or condition or any subsequent breach thereof.</p>
+
+
+        <p>13. CONTACT INFORMATION<br/>
+        If you have any questions about this EULA, or if you want to contact BTB for any reason, please direct all correspondence to:
+        <a href="mailto:support@bitethebullet.co.uk">support@bitethebullet.co.uk</a></p>]]></license>
+      <releaseNotes>
+      </releaseNotes>
+      <components>
+        <component type="Script">
+          <scripts>
+          </scripts>
+        </component>
+
+        <component type="Module">
+
+          <desktopModule>
+            <moduleName>BtbTweet</moduleName>
+            <foldername>BtbTweet</foldername>
+            <businessControllerClass></businessControllerClass>
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>BtbTweet</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/BtbTweet/ViewBtbTweet.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/BtbTweet/Settings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle></controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl></helpUrl>
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+
+          <eventMessage>
+            <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+            <processorCommand>UpgradeModule</processorCommand>
+            <attributes>
+              <businessControllerClass></businessControllerClass>
+              <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+              <upgradeVersionsList>01.00.00</upgradeVersionsList>
+            </attributes>
+          </eventMessage>
+
+        </component>
+
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>BtbTweet.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+
+        <component type="File">
+          <files>
+            <basePath>DesktopModules\BtbTweet</basePath>
+            <file>
+              <name>BtbTweet.dnn</name>
+            </file>
+            <file>
+              <path>App_LocalResources</path>
+              <name>Settings.ascx.resx</name>
+            </file>
+            <file>
+              <path>App_LocalResources</path>
+              <name>ViewBtbTweet.ascx.resx</name>
+            </file>
+            <file>
+              <name>Settings.ascx</name>
+            </file>
+            <file>
+              <path>js</path>
+              <name>jquery.tweet.js</name>
+            </file>
+            <file>
+              <name>Module.css</name>
+            </file>
+            <file>
+              <name>ViewBtbTweet.ascx</name>
+            </file>
+          </files>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>
