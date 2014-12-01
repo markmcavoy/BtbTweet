@@ -112,16 +112,16 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblTemplate.Text" xml:space="preserve">
     <value>Template</value>
   </data>
   <data name="lblTemplate.Help" xml:space="preserve">
-    <value>Allows you to provide a custom template for displaying the items. Use parameters for dynamic substitution ( ie. [CONTENT] [CREATEDDATE] [CREATEDBYUSER] [CREATEDBYUSERNAME] )</value>
+    <value>Allows you to select from the available Razor templates</value>
   </data>
   <data name="ControlTitle_settings.Text" xml:space="preserve">
     <value>BtbTweet Settings</value>
@@ -145,12 +145,24 @@
     <value>Optional query term that should be used to filter the results.</value>
   </data>
   <data name="lblQuery.Text" xml:space="preserve">
-    <value>Query</value>
+    <value>Search Query</value>
   </data>
   <data name="lblUsername.Help" xml:space="preserve">
-    <value>Enter the username(s) of the Twitter users to follow, separate multiple users with a comma.</value>
+    <value>Enter the username of the Twitter user to follow.</value>
   </data>
   <data name="lblUsername.Text" xml:space="preserve">
-    <value>Username(s)</value>
+    <value>Username</value>
+  </data>
+  <data name="lblMode.Help" xml:space="preserve">
+    <value>Defines the mode, user timelime or search.</value>
+  </data>
+  <data name="lblMode.Text" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="rbSearch.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="rbUserTimeline.Text" xml:space="preserve">
+    <value>User Timeline</value>
   </data>
 </root>

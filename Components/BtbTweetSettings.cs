@@ -41,6 +41,12 @@ namespace BiteTheBullet.BtbTweet.Components
         ModuleController controller;
         int tabModuleId;
 
+        public enum QueryMode
+        {
+            UserTimeline,
+            Search
+        }
+
         public BtbTweetSettings(int tabModuleId)
         {
             controller = new ModuleController();
@@ -79,6 +85,15 @@ namespace BiteTheBullet.BtbTweet.Components
         #region public properties
 
         /// <summary>
+        /// get/set the tweet query mode
+        /// </summary>
+        public QueryMode TweetQueryMode
+        {
+            get { return ReadSetting<QueryMode>("TweetQueryMode", QueryMode.Search); }
+            set { WriteSetting("TweetQueryMode", value.ToString()); }
+        }
+
+        /// <summary>
         /// get/set the usernames to return the tweets for.
         /// </summary>
         /// <remarks>multiple users should be separated with a comma</remarks>
@@ -108,9 +123,19 @@ namespace BiteTheBullet.BtbTweet.Components
         }
 
         /// <summary>
+        /// get/set the template file
+        /// </summary>
+        public string Template
+        {
+            get { return ReadSetting<string>("template", "listTweets.cshtml"); }
+            set { WriteSetting("template", value); }
+        }
+
+        /// <summary>
         /// get/set avatar size
         /// </summary>
         /// <remarks>0 to 48 to pixels range</remarks>
+        [Obsolete]
         public int AvatarSize
         {
             get { return ReadSetting<int>("avatarSize", 32); }

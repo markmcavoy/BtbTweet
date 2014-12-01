@@ -13,24 +13,6 @@ namespace BiteTheBullet.Modules.BtbTweet {
     public partial class Settings {
         
         /// <summary>
-        /// lblUsername control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UserControl lblUsername;
-        
-        /// <summary>
-        /// txtUsername control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
-        
-        /// <summary>
         /// lblCount control.
         /// </summary>
         /// <remarks>
@@ -47,6 +29,33 @@ namespace BiteTheBullet.Modules.BtbTweet {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCount;
+        
+        /// <summary>
+        /// lblMode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl lblMode;
+        
+        /// <summary>
+        /// rbUserTimeline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbUserTimeline;
+        
+        /// <summary>
+        /// rbSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbSearch;
         
         /// <summary>
         /// lblQuery control.
@@ -67,21 +76,21 @@ namespace BiteTheBullet.Modules.BtbTweet {
         protected global::System.Web.UI.WebControls.TextBox txtQuery;
         
         /// <summary>
-        /// lblAvatarSize control.
+        /// lblUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl lblAvatarSize;
+        protected global::System.Web.UI.UserControl lblUsername;
         
         /// <summary>
-        /// txtAvatarSize control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAvatarSize;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
     }
 }

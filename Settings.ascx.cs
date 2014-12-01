@@ -21,6 +21,7 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 
 using BiteTheBullet.BtbTweet.Components;
+using System.IO;
 
 namespace BiteTheBullet.Modules.BtbTweet
 {
@@ -39,10 +40,15 @@ namespace BiteTheBullet.Modules.BtbTweet
                 {
                     BtbTweetSettings settingsData = new BtbTweetSettings(this.TabModuleId);
 
-                    txtUsername.Text = settingsData.Username ?? "";
                     txtQuery.Text = settingsData.Query ?? "";
+                    txtUsername.Text = settingsData.Username;
+                    
+                    if (settingsData.TweetQueryMode == BtbTweetSettings.QueryMode.Search)
+                        rbSearch.Checked = true;
+                    else
+                        rbUserTimeline.Checked = true;
+
                     txtCount.Text = settingsData.FeedCount.ToString();
-                    txtAvatarSize.Text = settingsData.AvatarSize.ToString();                    
                 }
             }
             catch (Exception ex)
@@ -50,6 +56,7 @@ namespace BiteTheBullet.Modules.BtbTweet
                 Exceptions.ProcessModuleLoadException(this, ex);
             }
         }
+
 
         /// <summary>
         /// handles updating the module settings for this control
@@ -59,17 +66,14 @@ namespace BiteTheBullet.Modules.BtbTweet
             try
             {
                 int feedCount = 10;
-                int avatarSize = 32;
 
                 Int32.TryParse(txtCount.Text, out feedCount);
-                Int32.TryParse(txtAvatarSize.Text, out avatarSize);
 
                 BtbTweetSettings settingsData = new BtbTweetSettings(this.TabModuleId);
-                settingsData.Username = txtUsername.Text;
                 settingsData.Query = txtQuery.Text;
                 settingsData.FeedCount = feedCount;
-                settingsData.AvatarSize = avatarSize;
-
+                settingsData.Username = txtUsername.Text;
+                settingsData.TweetQueryMode = rbSearch.Checked ? BtbTweetSettings.QueryMode.Search : BtbTweetSettings.QueryMode.UserTimeline;
             }
             catch (Exception ex)
             {

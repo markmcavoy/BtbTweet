@@ -30,6 +30,7 @@ using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
 
 using BiteTheBullet.BtbTweet.Components;
+using BiteTheBullet.BtbTweet.Twitter;
 
 namespace BiteTheBullet.Modules.BtbTweet
 {
@@ -39,28 +40,7 @@ namespace BiteTheBullet.Modules.BtbTweet
         {
             try
             {
-#if !DNN4
-                jQuery.RequestRegistration();
-#endif
-
-                BtbTweetSettings settings = new BtbTweetSettings(this.TabModuleId);
-
-                Tweet.CssClass = string.Format("BtbTweet{0}", TabModuleId);
-                Tweet.Username = settings.Username;
-                Tweet.SearchTerm = settings.Query;
-                Tweet.AvatarSize = settings.AvatarSize;
-                Tweet.FeedCount = settings.FeedCount;
-                Tweet.LoadingTweetsCaption = Localization.GetString("LoadTweets", LocalResourceFile);
-
-                //if the username and query are null we should set a default username so that
-                //the module will load something, for now we'll load #dotnetnuke as search
-                if (string.IsNullOrEmpty(Tweet.Username) && string.IsNullOrEmpty(Tweet.SearchTerm))
-                {
-                    Tweet.SearchTerm = "#dotnetnuke";
-                }
-
-
-                Tweet.JavascriptPath = Page.ResolveUrl("~/DesktopModules/BtbTweet/js/jquery.tweet.js");
+                
             }
             catch (Exception ex)
             {

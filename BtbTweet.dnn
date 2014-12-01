@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dotnetnuke type="Package" version="5.0">
   <packages>
-
-    <!-- event prepay module -->
-    <package name="BtbTweet" type="Module" version="01.01.01">
+    <package name="BtbTweet" type="Module" version="02.00.00">
       <friendlyName>BtbTweet</friendlyName>
       <description>BtbTweet displays twitter tweets on your portal</description>
       <owner>
@@ -95,6 +93,7 @@
         <a href="mailto:support@bitethebullet.co.uk">support@bitethebullet.co.uk</a></p>]]></license>
       <releaseNotes>
       </releaseNotes>
+      <azureCompatible>true</azureCompatible>
       <components>
         <component type="Script">
           <scripts>
@@ -156,38 +155,24 @@
             <assembly>
               <name>BtbTweet.dll</name>
             </assembly>
+            <assembly>
+                <name>Newtonsoft.Json.dll</name>
+            </assembly>
+            <assembly>
+                <name>System.Web.Razor.dll</name>
+            </assembly>
           </assemblies>
         </component>
 
-        <component type="File">
-          <files>
-            <basePath>DesktopModules\BtbTweet</basePath>
-            <file>
-              <name>BtbTweet.dnn</name>
-            </file>
-            <file>
-              <path>App_LocalResources</path>
-              <name>Settings.ascx.resx</name>
-            </file>
-            <file>
-              <path>App_LocalResources</path>
-              <name>ViewBtbTweet.ascx.resx</name>
-            </file>
-            <file>
-              <name>Settings.ascx</name>
-            </file>
-            <file>
-              <path>js</path>
-              <name>jquery.tweet.js</name>
-            </file>
-            <file>
-              <name>Module.css</name>
-            </file>
-            <file>
-              <name>ViewBtbTweet.ascx</name>
-            </file>
-          </files>
-        </component>
+          <component type="ResourceFile">
+              <resourceFiles>
+                  <basePath>DesktopModules/BtbTweet</basePath>
+                  <resourceFile>
+                      <name>Resources.zip</name>
+                  </resourceFile>
+              </resourceFiles>
+          </component>
+          
       </components>
     </package>
   </packages>
