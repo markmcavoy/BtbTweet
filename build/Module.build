@@ -125,7 +125,6 @@
 		<copy todir="${package.dir}" flatten="false">
 			<fileset basedir="${package.dir}/temp">
 				<include name="BtbTweet.dll" />
-				<include name="Newtonsoft.Json.dll" />
 			</fileset>
 		</copy>
 		
@@ -176,7 +175,7 @@
             <fileset basedir="temp">
                 <include name="**/*" />
                 <exclude name="**/*.dll" />
-
+				<exclude name="**/.git" />
             </fileset>
         </zip>
 
@@ -194,7 +193,7 @@
             <fileset>
                 <include name="../*.sqldataprovider" />
                 <include name="../*.dnn" />
-                <include name="../EULA.htm" />
+                <include name="../eula.html" />
             </fileset>
         </copy>
 

@@ -75,23 +75,30 @@
             <assembly>
               <name>BtbTweet.dll</name>
             </assembly>
-            <assembly>
-                <name>Newtonsoft.Json.dll</name>
-            </assembly>
-            <assembly>
-                <name>System.Web.Razor.dll</name>
-            </assembly>
           </assemblies>
         </component>
 
-          <component type="ResourceFile">
-              <resourceFiles>
-                  <basePath>DesktopModules/BtbTweet</basePath>
-                  <resourceFile>
-                      <name>Resources.zip</name>
-                  </resourceFile>
-              </resourceFiles>
-          </component>
+        <component type="ResourceFile">
+            <resourceFiles>
+                <basePath>DesktopModules/BtbTweet</basePath>
+                <resourceFile>
+                    <name>Resources.zip</name>
+                </resourceFile>
+            </resourceFiles>
+        </component>
+
+
+        <component type="File">
+          <files>
+            <basePath>DesktopModules\BtbTweet</basePath>
+            <file>
+              <name>BtbTweet.dnn</name>
+            </file>
+            <file>
+              <name>eula.html</name>
+            </file>
+          </files>
+        </component>
           
       </components>
     </package>
