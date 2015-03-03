@@ -58,7 +58,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\dnn_profeet\bin\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -82,7 +82,6 @@
   <ItemGroup>
     <Compile Include="Components\BtbTweetSettings.cs" />
     <Compile Include="Components\DnnCacheProvider.cs" />
-    <Compile Include="Controls\TweetControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.ascx.cs">
       <DependentUpon>Settings.ascx</DependentUpon>
@@ -114,7 +113,6 @@
     </None>
     <None Include="build\Module.build" />
     <None Include="build\vars64.bat" />
-    <Content Include="Templates\listTweets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\Settings.ascx.resx">

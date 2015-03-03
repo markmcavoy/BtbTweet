@@ -83,7 +83,7 @@
                 else if(timeDiffHours >0)
                     $element.html("<p>About " + timeDiffHours +" hours ago</p>");
                 else 
-                    $element.html("<p>About" + timeDiffMin +" minutes ago</p>");
+                    $element.html("<p>About " + timeDiffMin +" minutes ago</p>");
 
             }
         };

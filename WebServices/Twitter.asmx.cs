@@ -48,47 +48,8 @@ namespace BiteTheBullet.BtbTweet.WebServices
             {
                 return results.ToArray();
             }
-            //return RenderTemplate(portalId, 
-            //                        tabModuleId, 
-            //                        settings.Template, 
-            //                        results);
         }
         
-        //delete me
-        /// <summary>
-        /// render the template with the data
-        /// </summary>
-        /// <param name="portalId"></param>
-        /// <param name="tabModuleId"></param>
-        /// <param name="templateFile"></param>
-        /// <param name="tweets"></param>
-        /// <param name="viewBag"></param>
-        /// <returns></returns>
-        //protected string RenderTemplate(int portalId, int tabModuleId, string templateFile, IList<TwitterInfo> tweets, dynamic viewBag = null)
-        //{
-        //    if (tweets == null)
-        //        return string.Empty;
 
-            
-
-        //    //add in some common DNN and CV objects into the
-        //    //viewbag
-
-        //    //todo: MM razor merge the viewbag with the data we are going to push into the object
-        //    if (viewBag == null)
-        //    {
-        //        viewBag = new ExpandoObject();
-        //    }
-
-        //    viewBag.PortalId = portalId;
-        //    viewBag.TabModuleId = tabModuleId;
-
-        //    templateFile = "~/DesktopModules/BtbTweet/Templates/" + templateFile;
-
-        //    var rm = RazorService.Instance();
-        //    var t = rm.ExecuteUrl(templateFile, tweets, viewBag);
-
-        //    return t.Result;
-        //}
     }
 }
