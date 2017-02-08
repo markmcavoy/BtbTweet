@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewBtbTweet.ascx.cs" Inherits="BiteTheBullet.Modules.BtbTweet.ViewBtbTweet" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
 <dnn:DnnJsInclude runat="server" FilePath="~/DesktopModules/BtbTweet/js/moment.js" />
 
 <div class="row">
@@ -13,7 +13,7 @@
             <ul class="tweet-list" ng-Show="tweets.length > 0">
                 <li ng-Repeat="t in tweets">
                     <div class="tweet-avatar">
-                        <img src="{{t.ProfileImage}}" alt="" />
+                        <img ng-src="{{t.ProfileImage}}" alt="" />
                     </div>
                     <div class="tweet-body">
                         <span ng-bind-html="t.ProcessedText | to_trusted"></span>
