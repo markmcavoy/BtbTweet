@@ -9,6 +9,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
     public class TwitterInfo
     {
         string text;
+        string profileImage;
 
         public string Text 
         {
@@ -32,7 +33,17 @@ namespace BiteTheBullet.BtbTweet.Twitter
 
         public string ProfileName { get; set; }
 
-        public string ProfileImage { get; set; }
+        public string ProfileImage {
+            get 
+            { 
+                return profileImage; 
+            }
+
+            set 
+            {
+                profileImage = value.Replace("http://", "https://");
+            }
+        }
 
         private string AddHyperlinks(string input)
         {
