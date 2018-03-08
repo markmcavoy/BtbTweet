@@ -7,6 +7,7 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using System.Globalization;
+using DotNetNuke.Instrumentation;
 
 namespace BiteTheBullet.BtbTweet.Twitter
 {
@@ -14,6 +15,8 @@ namespace BiteTheBullet.BtbTweet.Twitter
     {
         const string consumer_key = "V6mKpi2LAm1oTIsGGsBUQ";
         const string consumer_secret = "FzhCA53keMgWz8RG7mOG1BeCNsgEUs1n0DPR4JWdCoI";
+
+        protected static readonly DnnLogger Log = DnnLogger.GetLogger("BiteTheBullet.BtbTweet.Twitter.TwitterService");
 
         ICacheProvider cacheProvider;
 
@@ -58,7 +61,10 @@ namespace BiteTheBullet.BtbTweet.Twitter
                 StreamReader reader = new StreamReader(response.GetResponseStream());
 
                 // Console application output  
-                dynamic json = JsonConvert.DeserializeObject(reader.ReadToEnd());
+                var data = reader.ReadToEnd();
+                Log.DebugFormat("Oath response: {0}", data);
+
+                dynamic json = JsonConvert.DeserializeObject(data);
 
                 if (cacheProvider != null)
                     cacheProvider.SetBearer(json.access_token.Value);
@@ -84,7 +90,10 @@ namespace BiteTheBullet.BtbTweet.Twitter
                 // Get the response stream  
                 StreamReader reader = new StreamReader(response.GetResponseStream());
 
-                dynamic json = JsonConvert.DeserializeObject(reader.ReadToEnd());
+                var data = reader.ReadToEnd();
+                Log.DebugFormat("User timeline data:{0}", data);
+
+                dynamic json = JsonConvert.DeserializeObject(data);
                 var twitterResult = new List<TwitterInfo>();
 
                 foreach (var item in json)
