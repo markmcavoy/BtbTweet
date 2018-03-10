@@ -22,6 +22,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
 
         public TwitterService(ICacheProvider cacheProvider)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             this.cacheProvider = cacheProvider;
         }
 
