@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewBtbTweet.ascx.cs" Inherits="BiteTheBullet.Modules.BtbTweet.ViewBtbTweet" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+<dnn:DnnJsInclude runat="server" FilePath="~/DesktopModules/CVNewsModule/JS/angular.min.js" />
 <dnn:DnnJsInclude runat="server" FilePath="~/DesktopModules/BtbTweet/js/moment.js" />
 
 <div class="row">
