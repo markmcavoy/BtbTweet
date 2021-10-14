@@ -1,8 +1,21 @@
-BtbTweet
-========
+# BtbTweet - Free Twitter Module
 
-DotNetNuke module to display tweets from Twitter on your site. Simple and lightweight, it won't block you page loading!
-Clean and fast using AJAX and AngularJS. 
+DNN (DotNetNuke) module to display tweets from Twitter on your site. Simple and lightweight.
 
-Read more about this project at the DNN Forge
-http://www.dnnsoftware.com/forge/btb-tweet
+## Template Based
+Template driven output, easy to customise, comes with three templates.
+* Angular Template, AJAX template
+* React Template, AJAX template
+* Razor Template
+
+Easy to add more templates.
+
+## Simple Setup
+
+Two modes
+* Display a user's timeline
+* Display tweets based on a search
+
+## Free Open Source License
+
+GNU v3 license
