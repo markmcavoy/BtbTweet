@@ -26,6 +26,12 @@
             <asp:textbox id="txtUsername" cssclass="NormalTextBox" columns="30" runat="server" />
         </td>
     </tr>
+    <tr>
+        <td class="SubHead" width="150" valign="top"><dnn:label id="lblTemplate" runat="server" controlname="txtTemplate" suffix=":"></dnn:label></td>
+        <td>
+            <asp:DropDownList runat="server" ID="ddlTemplates" />
+        </td>
+    </tr>
 </table>
 
 <script type="text/javascript">

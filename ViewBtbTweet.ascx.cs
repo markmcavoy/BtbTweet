@@ -31,6 +31,8 @@ using DotNetNuke.Services.Localization;
 
 using BiteTheBullet.BtbTweet.Components;
 using BiteTheBullet.BtbTweet.Twitter;
+using DotNetNuke.UI.Modules;
+using System.Dynamic;
 
 namespace BiteTheBullet.Modules.BtbTweet
 {
@@ -40,12 +42,44 @@ namespace BiteTheBullet.Modules.BtbTweet
         {
             try
             {
-                
+                var settingsData = new BtbTweetSettings(this.TabModuleId);
+                RenderTemplate(settingsData.Template);
             }
             catch (Exception ex)
             {
                 Exceptions.ProcessModuleLoadException(this, ex);
             }
+        }
+
+        protected void RenderTemplate(string scriptName= null)
+        {
+            if(scriptName == null)
+            {
+                scriptName = "AngularTemplate.cshtml";
+            }
+
+            dynamic model = new ExpandoObject();
+            model.Page = this.Page;
+
+            phOutput.Controls.Add(RenderRazorScript(this,
+                                                scriptName,
+                                                model));
+        }
+
+        /// <summary>
+        /// renders a razor script using the DNNRazorEngine and generates a Literal
+        /// control holding the data. This method allows model data to be passed to the
+        /// script
+        /// </summary>
+        /// <param name="moduleControl"></param>
+        /// <param name="scriptFile"></param>
+        /// <param name="modelData"></param>
+        /// <returns></returns>
+        private static LiteralControl RenderRazorScript(IModuleControl moduleControl,
+                                                    string scriptFile,
+                                                    ExpandoObject modelData = null)
+        {
+            return new LiteralControl(RazorUtility.RenderRazorScript(moduleControl, scriptFile, modelData));
         }
 
     }

@@ -127,7 +127,7 @@ namespace BiteTheBullet.BtbTweet.Components
         /// </summary>
         public string Template
         {
-            get { return ReadSetting<string>("template", "listTweets.cshtml"); }
+            get { return ReadSetting<string>("template", "AngularTemplate.cshtml"); }
             set { WriteSetting("template", value); }
         }
 

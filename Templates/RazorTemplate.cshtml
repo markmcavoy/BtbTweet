@@ -1,0 +1,38 @@
+﻿@using DotNetNuke.Common;
+@using System.Linq;
+@using DotNetNuke.Web.Client.ClientResourceManagement;
+@using BiteTheBullet.BtbTweet.WebServices;
+
+@inherits DotNetNuke.Web.Razor.DotNetNukeWebPage<dynamic>
+
+@{ 
+    var tweets = new Twitter().LoadTweets(Dnn.Portal.PortalId, Dnn.Module.TabModuleID);
+}
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div id="btbTwitterContainer">
+
+            <ul class="tweet-list">
+                @foreach (var tweet in tweets)
+                {
+                    <li>
+                        <div class="tweet-avatar">
+                            <img src="@tweet.ProfileImage" alt="" />
+                        </div>
+                        <div class="tweet-body">
+                            @tweet.ProcessedText
+                            <div>
+                                @tweet.Created
+                            </div>
+                        </div>
+
+                    </li>
+                }
+
+            </ul>
+
+        </div>
+    </div>
+</div>

@@ -22,11 +22,27 @@ using DotNetNuke.Services.Exceptions;
 
 using BiteTheBullet.BtbTweet.Components;
 using System.IO;
+using System.Linq;
 
 namespace BiteTheBullet.Modules.BtbTweet
 {
     public partial class Settings : ModuleSettingsBase
     {
+
+
+        protected void Page_Load(object sender, EventArgs args)
+        {
+            if (!IsPostBack)
+            {
+                var path = Server.MapPath(RazorUtility.TEMPLATE_PATH);
+                var files = Directory.GetFiles(path);
+
+                ddlTemplates.DataSource = files
+                                            .Select(f => Path.GetFileName(f))
+                                            .ToList();
+                ddlTemplates.DataBind();
+            }
+        }
 
         /// <summary>
         /// handles the loading of the module setting for this
@@ -49,6 +65,7 @@ namespace BiteTheBullet.Modules.BtbTweet
                         rbUserTimeline.Checked = true;
 
                     txtCount.Text = settingsData.FeedCount.ToString();
+                    ddlTemplates.SelectedValue = settingsData.Template;
                 }
             }
             catch (Exception ex)
@@ -74,6 +91,7 @@ namespace BiteTheBullet.Modules.BtbTweet
                 settingsData.FeedCount = feedCount;
                 settingsData.Username = txtUsername.Text;
                 settingsData.TweetQueryMode = rbSearch.Checked ? BtbTweetSettings.QueryMode.Search : BtbTweetSettings.QueryMode.UserTimeline;
+                settingsData.Template = ddlTemplates.SelectedValue;
             }
             catch (Exception ex)
             {
