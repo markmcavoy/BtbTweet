@@ -7,7 +7,9 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using System.Globalization;
+using System.Linq;
 using DotNetNuke.Instrumentation;
+using System.Dynamic;
 
 namespace BiteTheBullet.BtbTweet.Twitter
 {
@@ -94,18 +96,23 @@ namespace BiteTheBullet.BtbTweet.Twitter
                 var data = reader.ReadToEnd();
                 Log.DebugFormat("User timeline data:{0}", data);
 
-                dynamic json = JsonConvert.DeserializeObject(data);
+                var json = JsonConvert.DeserializeObject<IList<TwitterResponseDto>>(data);
                 var twitterResult = new List<TwitterInfo>();
 
                 foreach (var item in json)
                 {
+
                     twitterResult.Add(new TwitterInfo()
                     {
-                        StatusId = long.Parse(item.id_str.Value),
-                        Created = ParseTwitterDate(item.created_at.Value),
-                        Text = item.text.Value,
-                        ProfileImage = item.user.profile_image_url.Value,
-                        ProfileName = item.user.name.Value
+                        StatusId = item.id,
+                        Created = ParseTwitterDate(item.created_at),
+                        Text = item.text,
+                        ProfileImage = item.user.profile_image_url,
+                        ProfileName = item.user.name,
+                        HashTags = item.entities?.hashtags?.Select(h => h.text)?.ToArray(),
+                        TwitterUsername = item.user.screen_name,
+                        RetweetCount = item.retweet_count,
+                        FavouriteCount = item.favorite_count
                     });
                 }
 

@@ -133,6 +133,7 @@
     </Compile>
     <Compile Include="Twitter\ICacheProvider.cs" />
     <Compile Include="Twitter\TwitterInfo.cs" />
+    <Compile Include="Twitter\TwitterResponseDto.cs" />
     <Compile Include="Twitter\TwitterService.cs" />
     <Compile Include="ViewBtbTweet.ascx.cs">
       <DependentUpon>ViewBtbTweet.ascx</DependentUpon>
