@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BiteTheBullet.Modules.BtbTweet {
-    
-    
-    public partial class Settings {
-        
+namespace BiteTheBullet.Modules.BtbTweet
+{
+
+
+    public partial class Settings
+    {
+
         /// <summary>
         /// lblCount control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace BiteTheBullet.Modules.BtbTweet {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UserControl lblCount;
-        
+
         /// <summary>
         /// txtCount control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace BiteTheBullet.Modules.BtbTweet {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCount;
-        
+
         /// <summary>
         /// lblMode control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace BiteTheBullet.Modules.BtbTweet {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UserControl lblMode;
-        
+
         /// <summary>
         /// rbUserTimeline control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace BiteTheBullet.Modules.BtbTweet {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rbUserTimeline;
-        
+
         /// <summary>
         /// rbSearch control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace BiteTheBullet.Modules.BtbTweet {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rbSearch;
-        
+
         /// <summary>
         /// lblQuery control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace BiteTheBullet.Modules.BtbTweet {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UserControl lblQuery;
-        
+
         /// <summary>
         /// txtQuery control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace BiteTheBullet.Modules.BtbTweet {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQuery;
-        
+
         /// <summary>
         /// lblUsername control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace BiteTheBullet.Modules.BtbTweet {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UserControl lblUsername;
-        
+
         /// <summary>
         /// txtUsername control.
         /// </summary>
@@ -92,5 +94,23 @@ namespace BiteTheBullet.Modules.BtbTweet {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
+
+        /// <summary>
+        /// lblTemplate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl lblTemplate;
+
+        /// <summary>
+        /// ddlTemplates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTemplates;
     }
 }

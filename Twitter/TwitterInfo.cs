@@ -25,6 +25,8 @@ namespace BiteTheBullet.BtbTweet.Twitter
             } 
         }
 
+        public string[] HashTags { get; set; }
+
         public string ProcessedText { get; set; }
 
         public DateTime Created { get; set; }
@@ -32,6 +34,12 @@ namespace BiteTheBullet.BtbTweet.Twitter
         public long StatusId { get; set; }
 
         public string ProfileName { get; set; }
+
+        public string TwitterUsername { get; set; }
+
+        public int RetweetCount { get; set; }
+
+        public int FavouriteCount { get; set; }
 
         public string ProfileImage {
             get 
