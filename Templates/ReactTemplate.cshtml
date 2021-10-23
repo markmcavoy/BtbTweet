@@ -4,5 +4,17 @@
 
 @inherits DotNetNuke.Web.Razor.DotNetNukeWebPage<dynamic>
 
+@{ 
+    ClientResourceManager.RegisterScript(Model.Page, "~/DesktopModules/BtbTweet/dist/js/btbtweet.js", 50, "DnnFormBottomProvider");
+}
 
-<h1>react template</h1>
+
+<div id="btbTweets"></div>
+
+<script type="text/javascript">
+
+    var btbContext = {};
+    btbContext.portalId = @Dnn.Portal.PortalId;
+    btbContext.tabModuleId = @Dnn.Module.TabModuleID;
+
+</script>
