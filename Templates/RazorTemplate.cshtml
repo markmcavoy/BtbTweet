@@ -5,35 +5,35 @@
 
 @inherits DotNetNuke.Web.Razor.DotNetNukeWebPage<dynamic>
 
-@{ 
+@{
     var tweets = new Twitter().LoadTweets(Dnn.Portal.PortalId, Dnn.Module.TabModuleID);
 }
 
 
-<div class="row">
-    <div class="col-sm-12">
-        <div id="btbTwitterContainer">
-
-            <ul class="tweet-list">
-                @foreach (var tweet in tweets)
-                {
-                    <li>
-                        <div class="tweet-avatar">
-                            <img src="@tweet.ProfileImage" alt="" />
-                        </div>
-                        <div class="tweet-body">
-                            @tweet.ProcessedText
-                            <div>
-                            <i>
-                                @tweet.Created
-                                </i>
+<div id="btbTwitterContainer">
+    <div class="tweet-list">
+        <div class="row">
+            @foreach (var tweet in tweets)
+            {
+                <div class="col-lg-4 col-sm-6 col-12 d-flex align-items-stretch mb-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="tweet-avatar">
+                                <img src="@tweet.ProfileImage" alt="@tweet.ProfileName" class="img-fluid w-100" />
                             </div>
                         </div>
-                                            </li>
-                }
-
-            </ul>
-
+                        <div class="tweet-body card-body">
+                            @tweet.ProcessedText
+                            <div>
+                                @tweet.HashTags.Length
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            @tweet.Created
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>
