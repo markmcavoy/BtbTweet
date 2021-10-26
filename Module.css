@@ -49,3 +49,7 @@
     
 .tweet-list .tweet-avatar img{
   vertical-align: middle; }
+
+  .timestamp-color {
+    color: #30322f;
+  }
