@@ -4,13 +4,28 @@
     padding: 0;
 }
 
-    .tweet-list .card .card-header {
-        background-color: transparent;
-        border-bottom: none;
-        padding: 0;
-    }
+.tweet-list .card .card-header {
+    background-color: transparent;
+    border-bottom: none;
+    padding: 0;
+}
 
-    .tweet-list .card .card-footer {
-        background-color: transparent;
-        border-top: none;
-    }
+
+.tweet-list .card .card-footer {
+    background-color: transparent;
+    border-top: none;
+}
+
+.tweet-list .tweet_body{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-left: 50px;
+}
+    
+.tweet-list .tweet-avatar img{
+  vertical-align: middle; 
+}
+
+.timestamp-color {
+  color: #30322f;
+}
