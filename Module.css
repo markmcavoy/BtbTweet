@@ -1,44 +1,19 @@
-.tweet, .query {
-  color: #333; }
-  
-.tweet-list {
-  -webkit-border-radius: .5em;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: #D1E3EF; }
-    
-      
-.tweet-list li {
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: .5em; 
- }
- 
- .tweet-list li:nth-child(odd)
- {
-    background-color: #e3f0fb; 
- }
-            
-.tweet-list li a:link, 
-.tweet-list li a:visited
-{
-  color: #35418F; 
-} 
-
-.tweet-list li a:hover
-{
-  color: #030545; 
+/*Twitter module styling*/
+.tweet-list .card {
+    background-color: transparent;
+    padding: 0;
 }
 
-.tweet-list li a:active 
-{
-  color: #35418F; 
+.tweet-list .card .card-header {
+    background-color: transparent;
+    border-bottom: none;
+    padding: 0;
 }
-      
-.tweet-list .tweet-avatar{
-  padding-right: .5em;
-  float: left; 
+
+
+.tweet-list .card .card-footer {
+    background-color: transparent;
+    border-top: none;
 }
 
 .tweet-list .tweet_body{
@@ -48,8 +23,9 @@
 }
     
 .tweet-list .tweet-avatar img{
-  vertical-align: middle; }
+  vertical-align: middle; 
+}
 
-  .timestamp-color {
-    color: #30322f;
-  }
+.timestamp-color {
+  color: #30322f;
+}
