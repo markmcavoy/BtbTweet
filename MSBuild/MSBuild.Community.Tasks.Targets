@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <PropertyGroup>
+   <MSBuildCommunityTasksPath Condition="'$(MSBuildCommunityTasksPath)' == ''">$(MSBuildProjectDirectory)\MSBuild</MSBuildCommunityTasksPath>
+   <MSBuildDnnBinPath Condition="'$(MSBuildDnnBinPath)' == ''">$(MSBuildProjectDirectory)\..\..\bin</MSBuildDnnBinPath>
+   <MSBuildCommunityTasksLibPath>$(SolutionDir)\packages\MSBuildTasks.1.5.0.235\tools\MSBuild.Community.Tasks.dll</MSBuildCommunityTasksLibPath>
+ </PropertyGroup>
+ 
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.AspNet.InstallAspNet" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.AssemblyInfo" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Attrib" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SqlExecute" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.FileUpdate" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.FtpUpload" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.FxCop" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.GacUtil" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.GetSolutionProjects" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.ILMerge" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Mail" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Move" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Math.Add" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Math.Divide" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Math.Modulo" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Math.Multiple" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Math.Subtract" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.NDoc" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.NUnit" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Prompt" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.RegistryRead" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.RegistryWrite" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.RegexMatch" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.RegexReplace" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Script" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.ServiceController" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.ServiceQuery" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Sleep" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.IIS.AppPoolController" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.IIS.AppPoolCreate" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.IIS.AppPoolDelete" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.IIS.WebDirectoryCreate" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.IIS.WebDirectoryDelete" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.IIS.WebDirectoryScriptMap" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.IIS.WebDirectorySetting" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Install.InstallAssembly" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Install.UninstallAssembly" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Schema.TaskSchema" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SqlServer.ExecuteDDL" />
+    
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SourceSafe.VssAdd" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SourceSafe.VssCheckin" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SourceSafe.VssCheckout" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SourceSafe.VssClean" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SourceSafe.VssDiff" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SourceSafe.VssGet" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SourceSafe.VssHistory" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SourceSafe.VssLabel" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.SourceSafe.VssUndoCheckout" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Subversion.SvnCheckout" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Subversion.SvnClient" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Subversion.SvnCopy" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Subversion.SvnCommit" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Subversion.SvnExport" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Subversion.SvnInfo" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Subversion.SvnUpdate" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Subversion.SvnVersion" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Tfs.TfsVersion" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.TemplateFile" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Time" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Unzip" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Version" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.WebDownload" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Xml.XmlMassUpdate" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Xml.XmlQuery" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.XmlRead" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.XmlUpdate" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Xslt" />
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.Zip" />
+
+ <UsingTask AssemblyFile="$(MSBuildCommunityTasksLibPath)" TaskName="MSBuild.Community.Tasks.JavaScript.JSCompress" />
+
+ <ItemGroup>
+   <FxCopRuleAssemblies Include="UsageRules.dll"/>
+   <FxCopRuleAssemblies Include="SecurityRules.dll"/>
+   <FxCopRuleAssemblies Include="PortabilityRules.dll"/>
+   <FxCopRuleAssemblies Include="PerformanceRules.dll"/>
+   <FxCopRuleAssemblies Include="MobilityRules.dll"/>
+   <FxCopRuleAssemblies Include="InteroperabilityRules.dll"/>
+   <FxCopRuleAssemblies Include="GlobalizationRules.dll"/>
+   <FxCopRuleAssemblies Include="DesignRules.dll"/>
+ </ItemGroup>
+</Project>

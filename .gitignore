@@ -111,3 +111,4 @@ UpgradeLog*.XML
 node_modules/
 dist/
 package/*.zip
+install/*.zip

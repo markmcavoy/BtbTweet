@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1252"?>
+
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="MSBuild.Community.Tasks.Targets" />
+  <Target Name="PackageModule">
+    <XmlRead Prefix="n"
+                    Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+                    XPath="dotnetnuke/packages/package[1]/@version"
+                    XmlFileName="$(DNNFileName).dnn">
+      <Output TaskParameter="Value" PropertyName="Version" />
+    </XmlRead>
+
+    <!--in VS 2012 we exclude the packages folder -->
+    <ItemGroup>     
+      <InstallInclude Include="**\Fonts\**" Exclude="packages\**;node_modules\**"/>
+      <InstallInclude Include="**\*.ascx" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\*.asmx" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\*.css" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\*.html" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\*.cshtml" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\*.htm" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\*.resx" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\*.aspx" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\*.ashx" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\*.json" Exclude="packages\**;node_modules\**;.git\**" />
+      <InstallInclude Include="**\*.pdf" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\*.js" Exclude="packages\**;node_modules\**;react\**;webpack.config.js;webpack.production.config.js" />
+      <InstallInclude Include="**\*.js.map" Exclude="packages\**;node_modules\**;react\**" />
+      <InstallInclude Include="**\*.txt"  Exclude="**\obj\**;**\_ReSharper*\**;packages\**;**\.git\**;node_modules\**" />
+      <InstallInclude Include="**\imgs\**" Exclude="packages\**;node_modules\**" />
+      
+    </ItemGroup>
+    
+    <CreateItem Include="$(DNNFileName).dnn">
+      <Output TaskParameter="Include" ItemName="PackageManifestFiles" />
+    </CreateItem>
+
+
+    <CreateItem Include="**\*.sqldataprovider">
+      <Output TaskParameter="Include" ItemName="SqlDataProviderFiles" />
+    </CreateItem>
+
+    <Copy SourceFiles="$(MSBuildDnnBinPath)\$(AssemblyName).dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
+
+    <Copy SourceFiles="@(SqlDataProviderFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package\%(RecursiveDir)" />
+    <Copy SourceFiles="@(PackageManifestFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package" />
+    <Copy SourceFiles="@(PackageTxtFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package" />
+    
+    
+    <!-- create the INSTALL RESOURCES.ZIP file -->
+    <Copy SourceFiles="@(InstallInclude)" DestinationFolder="$(MSBuildProjectDirectory)\ResourcesZip\%(RecursiveDir)" />
+
+    <CreateItem Include="$(MSBuildProjectDirectory)\ResourcesZip\**\*.*">
+      <Output TaskParameter="Include" ItemName="ResourcesContent" />
+    </CreateItem>
+    
+    <Zip Files="@(ResourcesContent)" WorkingDirectory="$(MSBuildProjectDirectory)\ResourcesZip" ZipFileName="Resources.$(Extension)" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\Resources.$(Extension)" DestinationFolder="package/" />
+
+    <CreateItem Include="$(MSBuildProjectDirectory)\Package\**\*.*">
+      <Output TaskParameter="Include" ItemName="OutputContent" />
+    </CreateItem>
+
+    <!-- Create the Install package -->    
+    <Zip Files="@(OutputContent)" WorkingDirectory="$(MSBuildProjectDirectory)\Package" ZipFileName="$(PackageName)_$(Version)_Install.$(Extension)" />
+    <!-- Copy the Install package to the Packages folder -->
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\$(PackageName)_$(Version)_Install.$(Extension)" DestinationFolder="install/" />
+    
+    <RemoveDir Directories ="$(MSBuildProjectDirectory)\Package" />
+    <RemoveDir Directories ="$(MSBuildProjectDirectory)\ResourcesZip" />
+
+    <Delete Files="$(MSBuildProjectDirectory)\$(PackageName)_$(Version)_Install.$(Extension)" />
+
+    <Delete Files="$(MSBuildProjectDirectory)\Resources.Zip" />
+
+    <RemoveDir Directories ="$(MSBuildProjectDirectory)\Package" />
+
+    <RemoveDir Directories ="$(MSBuildProjectDirectory)\ResourcesZip" />
+    
+  </Target>
+</Project>
