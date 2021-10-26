@@ -167,6 +167,7 @@
                 <exclude name="obj/**.*" />
                 <exclude name="package/**.*" />
                 <exclude name="doc/**.*" />
+                <exclude name="node_modules/**.*" />
 
             </fileset>
         </copy>
