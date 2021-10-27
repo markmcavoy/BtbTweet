@@ -6,12 +6,12 @@
 @inherits DotNetNuke.Web.Razor.DotNetNukeWebPage<dynamic>
 
 @{
+
     var tweets = new Twitter().LoadTweets(Dnn.Portal.PortalId, Dnn.Module.TabModuleID);
 
     var twitterurl = "https://twitter.com/";
 
 }
-
 
 <div id="btbTwitterContainer">
     <div class="tweet-list">
@@ -33,12 +33,21 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-xl-7 col-md-12 col-6">
+                                    <p><b>@tweet.RetweetCount</b> Retweets</p>
+                                </div>
+                                <div class="col-xl-5 col-md-12 col-6 text-xl-right text-md-left text-right">
+                                    <p><b>@tweet.FavouriteCount</b> Likes</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-7 col-md-12 col-6">
                                     @tweet.Created
                                 </div>
                                 <div class="col-xl-5 col-md-12 col-6 text-xl-right text-md-left text-right">
                                     <a href="@twitterurl@tweet.TwitterUsername/status/@tweet.StatusId" target="_blank">Read more</a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
