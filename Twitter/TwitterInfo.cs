@@ -50,6 +50,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
             set 
             {
                 profileImage = value.Replace("http://", "https://");
+                profileImage = value.Replace("_normal", "_400x400");
             }
         }
 
