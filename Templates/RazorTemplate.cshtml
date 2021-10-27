@@ -7,6 +7,9 @@
 
 @{
     var tweets = new Twitter().LoadTweets(Dnn.Portal.PortalId, Dnn.Module.TabModuleID);
+
+    var twitterurl = "https://twitter.com/";
+
 }
 
 
@@ -15,21 +18,27 @@
         <div class="row">
             @foreach (var tweet in tweets)
             {
-                <div class="col-lg-4 col-sm-6 col-12 d-flex align-items-stretch mb-3">
+                <div class="col-lg-4 col-md-6 col-12 d-flex align-items-stretch my-3">
                     <div class="card">
                         <div class="card-header">
                             <div class="tweet-avatar">
-                                <img src="@tweet.ProfileImage" alt="@tweet.ProfileName" class="img-fluid w-100" />
+                                <a href="@twitterurl@tweet.TwitterUsername/status/@tweet.StatusId" target="_blank">
+                                    <img src="@tweet.ProfileImage" alt="@tweet.ProfileName" class="img-fluid w-100" />
+                                </a>
                             </div>
                         </div>
                         <div class="tweet-body card-body">
                             @tweet.ProcessedText
-                            <div class="timestamp-color">
-                              <i>@tweet.Created</i>
-                            </div>
                         </div>
                         <div class="card-footer">
-                            @tweet.Created
+                            <div class="row">
+                                <div class="col-xl-7 col-md-12 col-6">
+                                    @tweet.Created
+                                </div>
+                                <div class="col-xl-5 col-md-12 col-6 text-xl-right text-md-left text-right">
+                                    <a href="@twitterurl@tweet.TwitterUsername/status/@tweet.StatusId" target="_blank">Read more</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
