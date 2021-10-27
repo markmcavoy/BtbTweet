@@ -34,9 +34,6 @@
     <CreateItem Include="$(DNNFileName).dnn">
       <Output TaskParameter="Include" ItemName="PackageManifestFiles" />
     </CreateItem>
-    <CreateItem Include="eula.html">
-      <Output TaskParameter="Include" ItemName="PackageManifestFiles" />
-    </CreateItem>
 
 
     <CreateItem Include="**\*.sqldataprovider">
