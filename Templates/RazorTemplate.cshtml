@@ -27,11 +27,11 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="tweet-body card-body">
+                        <div class="tweet-body card-body pb-0">
                             <div class="twitter-user">
                                 <div class="col-12">
-                                    <div class="row d-flex align-items-center py-3">
-                                        <div class="col-3">
+                                    <div class="row d-flex align-items-center pb-2">
+                                        <div class="col-3 pl-0">
                                             <a href="@twitterurl@tweet.TwitterUsername" target="_blank" class="text-dark">
                                                 <img src="@tweet.ProfileImage" alt="@tweet.ProfileName" class="img-fluid tweet-avatar-pic" />
                                             </a>
@@ -39,8 +39,9 @@
                                         <div class="col-9">
                                             <div class="row">
                                                 <a href="@twitterurl@tweet.TwitterUsername" target="_blank" class="text-dark">
-                                                    <p class="mb-0 pr-1">@tweet.ProfileName</p>@*<img src="~/DesktopModules/BtbTweet/images/twitter-tick.png" class="tweet-tick" />*@
+                                                    <p class="mb-0 pr-1">@tweet.ProfileName</p>
                                                 </a>
+                                                <img src="~/DesktopModules/BtbTweet/images/twitter-tick.png" class="tweet-tick @(tweet.Verified == true ? "d-block" : "d-none")" />
                                             </div>
                                             <div class="row">
                                                 <span class="d-flex">

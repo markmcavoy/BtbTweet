@@ -41,6 +41,8 @@ namespace BiteTheBullet.BtbTweet.Twitter
 
         public int FavouriteCount { get; set; }
 
+        public bool Verified { get; set; }
+
         public string ProfileImage {
             get 
             { 
