@@ -29,3 +29,14 @@
 .timestamp-color {
   color: #30322f;
 }
+
+.tweet-avatar-pic{
+    border-radius:50%;
+}
+.tweet-avatar-pic:hover{
+    opacity:.8;
+}
+.tweet-tick{
+    width:15px;
+    height:15px;
+}

@@ -28,6 +28,30 @@
                             </div>
                         </div>
                         <div class="tweet-body card-body">
+                            <div class="twitter-user">
+                                <div class="col-12">
+                                    <div class="row d-flex align-items-center py-3">
+                                        <div class="col-3">
+                                            <a href="@twitterurl@tweet.TwitterUsername" target="_blank" class="text-dark">
+                                                <img src="@tweet.ProfileImage" alt="@tweet.ProfileName" class="img-fluid tweet-avatar-pic" />
+                                            </a>
+                                        </div>
+                                        <div class="col-9">
+                                            <div class="row">
+                                                <a href="@twitterurl@tweet.TwitterUsername" target="_blank" class="text-dark">
+                                                    <p class="mb-0 pr-1">@tweet.ProfileName</p>@*<img src="~/DesktopModules/BtbTweet/images/twitter-tick.png" class="tweet-tick" />*@
+                                                </a>
+                                            </div>
+                                            <div class="row">
+                                                <span class="d-flex">
+                                                    @@
+                                                    <p class="mb-0">@tweet.TwitterUsername</p>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             @tweet.ProcessedText
                         </div>
                         <div class="card-footer">
@@ -40,10 +64,10 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xl-7 col-md-12 col-6">
+                                <div class="col-xl-7 col-7">
                                     @tweet.Created
                                 </div>
-                                <div class="col-xl-5 col-md-12 col-6 text-xl-right text-md-left text-right">
+                                <div class="col-xl-5 col-5 text-xl-right text-md-left text-right">
                                     <a href="@twitterurl@tweet.TwitterUsername/status/@tweet.StatusId" target="_blank">Read more</a>
                                 </div>
                             </div>
