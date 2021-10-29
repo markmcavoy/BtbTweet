@@ -112,7 +112,8 @@ namespace BiteTheBullet.BtbTweet.Twitter
                         HashTags = item.entities?.hashtags?.Select(h => h.text)?.ToArray(),
                         TwitterUsername = item.user.screen_name,
                         RetweetCount = item.retweet_count,
-                        FavouriteCount = item.favorite_count
+                        FavouriteCount = item.favorite_count,
+                        Verified = item.user.verified
                     });
                 }
 
