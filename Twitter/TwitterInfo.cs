@@ -67,4 +67,8 @@ namespace BiteTheBullet.BtbTweet.Twitter
         }
 
     }
+    public class TwitterMedia { 
+        
+    }
+
 }

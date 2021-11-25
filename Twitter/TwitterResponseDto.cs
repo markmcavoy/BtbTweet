@@ -6,6 +6,45 @@ using System.Web;
 namespace BiteTheBullet.BtbTweet.Twitter
 {
 
+    public class Rootobject
+    {
+        public Datum[] data { get; set; }
+        public Includes includes { get; set; }
+    }
+
+    public class Includes
+    {
+        public Medium[] media { get; set; }
+    }
+
+    public class Medium
+    {
+        public int duration_ms { get; set; }
+        public string type { get; set; }
+        public int height { get; set; }
+        public string media_key { get; set; }
+        public Public_Metrics public_metrics { get; set; }
+        public string preview_image_url { get; set; }
+        public int width { get; set; }
+    }
+
+    public class Public_Metrics
+    {
+        public int view_count { get; set; }
+    }
+
+    public class Datum
+    {
+        public string text { get; set; }
+        public string id { get; set; }
+        public Attachments attachments { get; set; }
+    }
+
+    public class Attachments
+    {
+        public string[] media_keys { get; set; }
+    }
+
     public class TwitterResponseDto
     {
         public string created_at { get; set; }

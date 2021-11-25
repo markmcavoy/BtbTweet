@@ -172,5 +172,47 @@ namespace BiteTheBullet.BtbTweet.Twitter
         {
             return DateTime.ParseExact(dateString, "ddd MMM dd HH:mm:ss zzzz yyyy", new CultureInfo("en-US"));
         }
+
+        private IList<TwitterInfo> GetTwitterMedia(string username, string mediaImage, long StatusId)
+        {
+            Uri mediaAddress = new Uri(string.Format("https://api.twitter.com/2/tweets/:id?expansions=attachments.media_keys&media.fields=duration_ms,height,media_key,preview_image_url,public_metrics,type,url,width"));
+
+            HttpWebRequest request = WebRequest.Create(address) as HttpWebRequest;
+
+            request.Method = "GET";
+            request.Headers.Add("Authorization", "Bearer " + GenerateBearerToken());
+
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            {
+                // Get the response stream  
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+
+                var data = reader.ReadToEnd();
+                Log.DebugFormat("User timeline data:{0}", data);
+
+                var json = JsonConvert.DeserializeObject<IList<TwitterResponseDto>>(data);
+                var twitterResult = new List<TwitterInfo>();
+
+                foreach (var item in json)
+                {
+
+                    twitterResult.Add(new TwitterInfo()
+                    {
+                        StatusId = item.id,
+                        Created = ParseTwitterDate(item.created_at),
+                        Text = item.text,
+                        ProfileImage = item.user.profile_image_url,
+                        ProfileName = item.user.name,
+                        HashTags = item.entities?.hashtags?.Select(h => h.text)?.ToArray(),
+                        TwitterUsername = item.user.screen_name,
+                        RetweetCount = item.retweet_count,
+                        FavouriteCount = item.favorite_count,
+                        Verified = item.user.verified
+                    });
+                }
+
+                return mediaImage;
+            }
+        }
     }
 }
