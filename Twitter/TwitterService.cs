@@ -7,7 +7,6 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using System.Globalization;
-using System.Linq;
 using DotNetNuke.Instrumentation;
 using System.Dynamic;
 
@@ -48,7 +47,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
             request.Headers.Add("Authorization", "Basic " + basicAuth);
-            
+
             byte[] byteData = UTF8Encoding.UTF8.GetBytes("grant_type=client_credentials".ToString());
 
             request.ContentLength = byteData.Length;
@@ -73,7 +72,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
                     cacheProvider.SetBearer(json.access_token.Value);
 
                 return json.access_token;
-            } 
+            }
         }
 
         public IList<TwitterInfo> UserTimeLine(string username, int count)
@@ -113,7 +112,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
                         TwitterUsername = item.user.screen_name,
                         RetweetCount = item.retweet_count,
                         FavouriteCount = item.favorite_count,
-                        Verified = item.user.verified
+                        MediaKey = GetTwitterMedia(item.id),
                     });
                 }
 
@@ -124,6 +123,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
 
             }
         }
+
 
         public IList<TwitterInfo> DoSearch(string queryTerm, int count)
         {
@@ -150,7 +150,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
 
                 foreach (var item in json.statuses)
                 {
-                    twitterResult.Add(new TwitterInfo() 
+                    twitterResult.Add(new TwitterInfo()
                     {
                         StatusId = long.Parse(item.id_str.Value),
                         Created = ParseTwitterDate(item.created_at.Value),
@@ -173,46 +173,30 @@ namespace BiteTheBullet.BtbTweet.Twitter
             return DateTime.ParseExact(dateString, "ddd MMM dd HH:mm:ss zzzz yyyy", new CultureInfo("en-US"));
         }
 
-        private IList<TwitterInfo> GetTwitterMedia(string username, string mediaImage, long StatusId)
+        public long GetTwitterMedia(long id)
         {
-            Uri mediaAddress = new Uri(string.Format("https://api.twitter.com/2/tweets/:id?expansions=attachments.media_keys&media.fields=duration_ms,height,media_key,preview_image_url,public_metrics,type,url,width"));
 
-            HttpWebRequest request = WebRequest.Create(address) as HttpWebRequest;
+            Uri mediaAddress = new Uri(string.Format("https://api.twitter.com/2/tweets/:{0}expansions=attachments.media_keys&media.fields=duration_ms,height,media_key,preview_image_url,public_metrics,type,url,width", HttpUtility.UrlEncode(id.ToString())));
 
-            request.Method = "GET";
-            request.Headers.Add("Authorization", "Bearer " + GenerateBearerToken());
+            HttpWebRequest mediaRequest = WebRequest.Create(mediaAddress) as HttpWebRequest;
 
-            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            mediaRequest.Method = "GET";
+            mediaRequest.Headers.Add("Authorization", "Bearer " + GenerateBearerToken());
+
+
+            using (HttpWebResponse mediaResponse = mediaRequest.GetResponse() as HttpWebResponse)
             {
                 // Get the response stream  
-                StreamReader reader = new StreamReader(response.GetResponseStream());
+                StreamReader reader = new StreamReader(mediaResponse.GetResponseStream());
 
-                var data = reader.ReadToEnd();
-                Log.DebugFormat("User timeline data:{0}", data);
+                var mediaData = reader.ReadToEnd();
 
-                var json = JsonConvert.DeserializeObject<IList<TwitterResponseDto>>(data);
-                var twitterResult = new List<TwitterInfo>();
-
-                foreach (var item in json)
-                {
-
-                    twitterResult.Add(new TwitterInfo()
-                    {
-                        StatusId = item.id,
-                        Created = ParseTwitterDate(item.created_at),
-                        Text = item.text,
-                        ProfileImage = item.user.profile_image_url,
-                        ProfileName = item.user.name,
-                        HashTags = item.entities?.hashtags?.Select(h => h.text)?.ToArray(),
-                        TwitterUsername = item.user.screen_name,
-                        RetweetCount = item.retweet_count,
-                        FavouriteCount = item.favorite_count,
-                        Verified = item.user.verified
-                    });
-                }
-
-                return mediaImage;
+                return id; 
             }
+            
         }
+
     }
 }
+
+
