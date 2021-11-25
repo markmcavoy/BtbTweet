@@ -48,5 +48,10 @@ namespace BiteTheBullet.BtbTweet.Components
         {
             throw new NotImplementedException();
         }
+
+        public void GetTwitterMedia(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
