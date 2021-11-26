@@ -14,8 +14,8 @@ namespace BiteTheBullet.BtbTweet.Twitter
 {
     public class TwitterService
     {
-        const string consumer_key = "V6mKpi2LAm1oTIsGGsBUQ";
-        const string consumer_secret = "FzhCA53keMgWz8RG7mOG1BeCNsgEUs1n0DPR4JWdCoI";
+        const string consumer_key = "AiUUPdlb35rRxFSzPiPFBmiBo";
+        const string consumer_secret = "JIkZ9wgI5fPyaCSkYSCPKZDeRWAi0pX00jYQ3Z7i4hmqCRYf1M";
 
         protected static readonly DnnLogger Log = DnnLogger.GetLogger("BiteTheBullet.BtbTweet.Twitter.TwitterService");
 
@@ -80,7 +80,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
             if (cacheProvider != null && cacheProvider.GetUserTimeline(username, count) != null)
                 return cacheProvider.GetUserTimeline(username, count);
 
-            Uri address = new Uri(string.Format("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={0}&count={1}", HttpUtility.UrlEncode(username), count));
+            Uri address = new Uri(string.Format("https://api.twitter.com/2/users/{0}/tweets", HttpUtility.UrlEncode(username)));
 
             HttpWebRequest request = WebRequest.Create(address) as HttpWebRequest;
 
@@ -130,7 +130,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
             if (cacheProvider != null && cacheProvider.GetSearchResults(queryTerm, count) != null)
                 return cacheProvider.GetSearchResults(queryTerm, count);
 
-            Uri address = new Uri(string.Format("https://api.twitter.com/1.1/search/tweets.json?q={0}&count={1}", HttpUtility.UrlEncode(queryTerm), count));
+            Uri address = new Uri(string.Format("https://api.twitter.com/2/search/tweets.json?q={0}&count={1}", HttpUtility.UrlEncode(queryTerm), count)); 
 
             HttpWebRequest request = WebRequest.Create(address) as HttpWebRequest;
 
@@ -177,11 +177,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
         {
 
 
-            //Uri mediaAddress = new Uri(string.Format("https://api.twitter.com/2/tweets/?ids={0}&expansions=attachments.media_keys&media.fields=duration_ms,height,media_key,preview_image_url,public_metrics,type,url,width", HttpUtility.UrlEncode(id.ToString())));
-
-            Uri mediaAddress = new Uri("https://api.twitter.com/2/tweets?ids=1263145271946551300&expansions=attachments.media_keys&media.fields=duration_ms,height,media_key,preview_image_url,public_metrics,type,url,width,alt_text");
-
-
+            Uri mediaAddress = new Uri(string.Format("https://api.twitter.com/2/tweets/?ids={0}&expansions=attachments.media_keys&media.fields=duration_ms,height,media_key,preview_image_url,public_metrics,type,url,width,alt_text", HttpUtility.UrlEncode(id.ToString())));
 
             HttpWebRequest mediaRequest = WebRequest.Create(mediaAddress) as HttpWebRequest;
 
