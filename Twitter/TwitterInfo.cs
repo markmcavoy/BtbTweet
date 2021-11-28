@@ -31,7 +31,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
 
         public DateTime Created { get; set; }
 
-        public long StatusId { get; set; }
+        public string StatusId { get; set; }
 
         public string ProfileName { get; set; }
 
@@ -60,7 +60,6 @@ namespace BiteTheBullet.BtbTweet.Twitter
         public string MediaType { get; set; }
         public int Height { get; set; }
         public long MediaKey { get; set; }
-        public Public_Metrics PublicMetrics { get; set; }
         public string PreviewImageUrl { get; set; }
         public int Width { get; set; }
 

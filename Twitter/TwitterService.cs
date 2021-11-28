@@ -9,6 +9,9 @@ using Newtonsoft.Json;
 using System.Globalization;
 using DotNetNuke.Instrumentation;
 using System.Dynamic;
+using System.Web.Helpers;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace BiteTheBullet.BtbTweet.Twitter
 {
@@ -80,7 +83,8 @@ namespace BiteTheBullet.BtbTweet.Twitter
             if (cacheProvider != null && cacheProvider.GetUserTimeline(username, count) != null)
                 return cacheProvider.GetUserTimeline(username, count);
 
-            Uri address = new Uri(string.Format("https://api.twitter.com/2/users/{0}/tweets", HttpUtility.UrlEncode(username)));
+            Uri address = new Uri(string.Format("https://api.twitter.com/2/users/{0}/tweets?max_results={1}", HttpUtility.UrlEncode(username), count));
+
 
             HttpWebRequest request = WebRequest.Create(address) as HttpWebRequest;
 
@@ -95,24 +99,25 @@ namespace BiteTheBullet.BtbTweet.Twitter
                 var data = reader.ReadToEnd();
                 Log.DebugFormat("User timeline data:{0}", data);
 
-                var json = JsonConvert.DeserializeObject<IList<TwitterResponseDto>>(data);
+                var json = JsonConvert.DeserializeObject<Root>(data);
+
                 var twitterResult = new List<TwitterInfo>();
 
-                foreach (var item in json)
+                foreach (var item in json.data)  
                 {
 
                     twitterResult.Add(new TwitterInfo()
                     {
                         StatusId = item.id,
-                        Created = ParseTwitterDate(item.created_at),
                         Text = item.text,
-                        ProfileImage = item.user.profile_image_url,
-                        ProfileName = item.user.name,
-                        HashTags = item.entities?.hashtags?.Select(h => h.text)?.ToArray(),
-                        TwitterUsername = item.user.screen_name,
-                        RetweetCount = item.retweet_count,
-                        FavouriteCount = item.favorite_count,
-                        MediaKey = GetTwitterMedia(item.id),
+                        //Created = ParseTwitterDate(item.created_at.ToString),
+                        //ProfileImage = item.,
+                        //ProfileName = item.author_id,
+                        //HashTags = item.entities?.hashtags?.Select(h => h.text)?.ToArray(),
+                        //TwitterUsername = item.,
+                        //RetweetCount = item.retweet_count,
+                        //FavouriteCount = item.favorite_count,
+                        //MediaKey = GetTwitterMedia(item.id),
                     });
                 }
 
@@ -173,7 +178,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
             return DateTime.ParseExact(dateString, "ddd MMM dd HH:mm:ss zzzz yyyy", new CultureInfo("en-US"));
         }
 
-        public long GetTwitterMedia(long id)
+        public string GetTwitterMedia(string id)
         {
 
 
