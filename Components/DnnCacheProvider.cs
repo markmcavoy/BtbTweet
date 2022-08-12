@@ -43,15 +43,5 @@ namespace BiteTheBullet.BtbTweet.Components
             string key = string.Format("BTB_TWEET_USER_DATA_{0}_{1}", username, count);
             DataCache.SetCache(key, results, DateTime.Now.AddMinutes(15));
         }
-
-        public void SetUserTimeline(string v, List<TwitterInfo> twitterResult)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetTwitterMedia(long id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

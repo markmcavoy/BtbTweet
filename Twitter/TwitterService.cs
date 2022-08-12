@@ -7,18 +7,16 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using System.Globalization;
+using System.Linq;
 using DotNetNuke.Instrumentation;
 using System.Dynamic;
-using System.Web.Helpers;
-using System.Web.Script.Serialization;
-using Newtonsoft.Json.Linq;
 
 namespace BiteTheBullet.BtbTweet.Twitter
 {
     public class TwitterService
     {
-        const string consumer_key = "AiUUPdlb35rRxFSzPiPFBmiBo";
-        const string consumer_secret = "JIkZ9wgI5fPyaCSkYSCPKZDeRWAi0pX00jYQ3Z7i4hmqCRYf1M";
+        const string consumer_key = "V6mKpi2LAm1oTIsGGsBUQ";
+        const string consumer_secret = "FzhCA53keMgWz8RG7mOG1BeCNsgEUs1n0DPR4JWdCoI";
 
         protected static readonly DnnLogger Log = DnnLogger.GetLogger("BiteTheBullet.BtbTweet.Twitter.TwitterService");
 
@@ -83,8 +81,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
             if (cacheProvider != null && cacheProvider.GetUserTimeline(username, count) != null)
                 return cacheProvider.GetUserTimeline(username, count);
 
-            Uri address = new Uri(string.Format("https://api.twitter.com/2/users/{0}/tweets?max_results={1}", HttpUtility.UrlEncode(username), count));
-
+            Uri address = new Uri(string.Format("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={0}&count={1}&tweet_mode=extended", HttpUtility.UrlEncode(username), count));
 
             HttpWebRequest request = WebRequest.Create(address) as HttpWebRequest;
 
@@ -99,25 +96,25 @@ namespace BiteTheBullet.BtbTweet.Twitter
                 var data = reader.ReadToEnd();
                 Log.DebugFormat("User timeline data:{0}", data);
 
-                var json = JsonConvert.DeserializeObject<Root>(data);
-
+                var json = JsonConvert.DeserializeObject<IList<TwitterResponseDto>>(data);
                 var twitterResult = new List<TwitterInfo>();
 
-                foreach (var item in json.data)  
+                foreach (var item in json)
                 {
 
                     twitterResult.Add(new TwitterInfo()
                     {
                         StatusId = item.id,
-                        Text = item.text,
-                        //Created = ParseTwitterDate(item.created_at.ToString),
-                        //ProfileImage = item.,
-                        //ProfileName = item.author_id,
-                        //HashTags = item.entities?.hashtags?.Select(h => h.text)?.ToArray(),
-                        //TwitterUsername = item.,
-                        //RetweetCount = item.retweet_count,
-                        //FavouriteCount = item.favorite_count,
-                        //MediaKey = GetTwitterMedia(item.id),
+                        Created = ParseTwitterDate(item.created_at),
+                        Text = item.full_text,
+                        ProfileImage = item.user.profile_image_url,
+                        ProfileName = item.user.name,
+                        HashTags = item.entities?.hashtags?.Select(h => h.text)?.ToArray(),
+                        TwitterUsername = item.user.screen_name,
+                        RetweetCount = item.retweet_count,
+                        FavouriteCount = item.favorite_count,
+                        Verified = item.user.verified,
+                        MediaUrl = item.entities?.media?.Select(m => m.media_url)?.ToArray()
                     });
                 }
 
@@ -129,13 +126,12 @@ namespace BiteTheBullet.BtbTweet.Twitter
             }
         }
 
-
         public IList<TwitterInfo> DoSearch(string queryTerm, int count)
         {
             if (cacheProvider != null && cacheProvider.GetSearchResults(queryTerm, count) != null)
                 return cacheProvider.GetSearchResults(queryTerm, count);
 
-            Uri address = new Uri(string.Format("https://api.twitter.com/2/search/tweets.json?q={0}&count={1}", HttpUtility.UrlEncode(queryTerm), count)); 
+            Uri address = new Uri(string.Format("https://api.twitter.com/1.1/search/tweets.json?q={0}&count={1}", HttpUtility.UrlEncode(queryTerm), count));
 
             HttpWebRequest request = WebRequest.Create(address) as HttpWebRequest;
 
@@ -177,32 +173,5 @@ namespace BiteTheBullet.BtbTweet.Twitter
         {
             return DateTime.ParseExact(dateString, "ddd MMM dd HH:mm:ss zzzz yyyy", new CultureInfo("en-US"));
         }
-
-        public string GetTwitterMedia(string id)
-        {
-
-
-            Uri mediaAddress = new Uri(string.Format("https://api.twitter.com/2/tweets/?ids={0}&expansions=attachments.media_keys&media.fields=duration_ms,height,media_key,preview_image_url,public_metrics,type,url,width,alt_text", HttpUtility.UrlEncode(id.ToString())));
-
-            HttpWebRequest mediaRequest = WebRequest.Create(mediaAddress) as HttpWebRequest;
-
-            mediaRequest.Method = "GET";
-            mediaRequest.Headers.Add("Authorization", "Bearer " + GenerateBearerToken());
-
-
-            using (HttpWebResponse mediaResponse = mediaRequest.GetResponse() as HttpWebResponse)
-            {
-                // Get the response stream  
-                StreamReader reader = new StreamReader(mediaResponse.GetResponseStream());
-
-                var mediaData = reader.ReadToEnd();
-
-                return id; 
-            }
-            
-        }
-
     }
 }
-
-

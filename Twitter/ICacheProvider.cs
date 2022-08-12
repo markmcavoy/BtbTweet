@@ -18,8 +18,5 @@ namespace BiteTheBullet.BtbTweet.Twitter
         IList<TwitterInfo> GetUserTimeline(string username, int count);
 
         void SetUserTimeline(string username, int count, IList<TwitterInfo> results);
-        void SetUserTimeline(string v, List<TwitterInfo> twitterResult);
-
-        void GetTwitterMedia(long id);
     }
 }
