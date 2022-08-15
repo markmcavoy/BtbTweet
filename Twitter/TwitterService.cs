@@ -48,7 +48,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
             request.Headers.Add("Authorization", "Basic " + basicAuth);
-            
+
             byte[] byteData = UTF8Encoding.UTF8.GetBytes("grant_type=client_credentials".ToString());
 
             request.ContentLength = byteData.Length;
@@ -73,7 +73,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
                     cacheProvider.SetBearer(json.access_token.Value);
 
                 return json.access_token;
-            } 
+            }
         }
 
         public IList<TwitterInfo> UserTimeLine(string username, int count)
@@ -81,7 +81,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
             if (cacheProvider != null && cacheProvider.GetUserTimeline(username, count) != null)
                 return cacheProvider.GetUserTimeline(username, count);
 
-            Uri address = new Uri(string.Format("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={0}&count={1}", HttpUtility.UrlEncode(username), count));
+            Uri address = new Uri(string.Format("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={0}&count={1}&tweet_mode=extended", HttpUtility.UrlEncode(username), count));
 
             HttpWebRequest request = WebRequest.Create(address) as HttpWebRequest;
 
@@ -106,14 +106,15 @@ namespace BiteTheBullet.BtbTweet.Twitter
                     {
                         StatusId = item.id,
                         Created = ParseTwitterDate(item.created_at),
-                        Text = item.text,
+                        Text = item.full_text,
                         ProfileImage = item.user.profile_image_url,
                         ProfileName = item.user.name,
                         HashTags = item.entities?.hashtags?.Select(h => h.text)?.ToArray(),
                         TwitterUsername = item.user.screen_name,
                         RetweetCount = item.retweet_count,
                         FavouriteCount = item.favorite_count,
-                        Verified = item.user.verified
+                        Verified = item.user.verified,
+                        MediaUrl = item.entities?.media?.Select(m => m.media_url)?.ToArray()
                     });
                 }
 
@@ -150,7 +151,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
 
                 foreach (var item in json.statuses)
                 {
-                    twitterResult.Add(new TwitterInfo() 
+                    twitterResult.Add(new TwitterInfo()
                     {
                         StatusId = long.Parse(item.id_str.Value),
                         Created = ParseTwitterDate(item.created_at.Value),

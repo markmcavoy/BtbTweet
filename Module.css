@@ -10,33 +10,39 @@
     padding: 0;
 }
 
+.tweet-list .card .card-header img {
+    height: 250px;
+    object-fit: contain;
+}
 
 .tweet-list .card .card-footer {
     background-color: transparent;
     border-top: none;
 }
 
-.tweet-list .tweet_body{
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  margin-left: 50px;
+.tweet-list .tweet_body {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-left: 50px;
 }
-    
-.tweet-list .tweet-avatar img{
-  vertical-align: middle; 
+
+.tweet-list .tweet-avatar img {
+    vertical-align: middle;
 }
 
 .timestamp-color {
-  color: #30322f;
+    color: #30322f;
 }
 
-.tweet-avatar-pic{
-    border-radius:50%;
+.tweet-avatar-pic {
+    border-radius: 50%;
 }
-.tweet-avatar-pic:hover{
-    opacity:.8;
-}
-.tweet-tick{
-    width:15px;
-    height:15px;
+
+    .tweet-avatar-pic:hover {
+        opacity: .8;
+    }
+
+.tweet-tick {
+    width: 15px;
+    height: 15px;
 }

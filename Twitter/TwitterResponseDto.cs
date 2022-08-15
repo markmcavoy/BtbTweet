@@ -12,6 +12,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
         public long id { get; set; }
         public string id_str { get; set; }
         public string text { get; set; }
+        public string full_text { get; set; }
         public bool truncated { get; set; }
         public Entities entities { get; set; }
         public string source { get; set; }
@@ -43,6 +44,16 @@ namespace BiteTheBullet.BtbTweet.Twitter
         public object[] symbols { get; set; }
         public object[] user_mentions { get; set; }
         public Url[] urls { get; set; }
+        public Media[] media { get; set; }
+    }
+
+    public class Media {
+        public string id { get; set; }
+        public string display_url { get; set; }
+        public string media_url { get; set; }
+        public string media_url_https { get; set; }
+        public string type { get; set; }
+        public string url { get; set; }
     }
 
     public class Hashtag
