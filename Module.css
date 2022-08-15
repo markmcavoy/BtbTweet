@@ -11,8 +11,8 @@
 }
 
 .tweet-list .card .card-header img {
-    height: 350px;
-    object-fit: cover;
+    height: 250px;
+    object-fit: contain;
 }
 
 .tweet-list .card .card-footer {
