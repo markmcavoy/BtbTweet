@@ -4,6 +4,8 @@ A DNN (DotNetNuke) module to display tweets from Twitter on your site. Simple an
 
 V4.0.0 now contains support for media images used in the Tweet results.
 
+![Example template](./wiki_image/example_template.png)
+
 ## Simple Setup
 
 Two modes use to select the tweets to display in the module.
