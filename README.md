@@ -1,6 +1,8 @@
 # BtbTweet - Free Twitter Module
 
-DNN (DotNetNuke) module to display tweets from Twitter on your site. Simple and lightweight. Customise the layout using the built in templates or create your own.
+A DNN (DotNetNuke) module to display tweets from Twitter on your site. Simple and lightweight. Customise the layout using the built in templates or create your own.
+
+V4.0.0 now contains support for media images used in the Tweet results.
 
 ## Simple Setup
 
@@ -16,6 +18,10 @@ The results are rendered using a template, the modules has three templates alrea
 * Angular Template, AJAX template
 * React Template, AJAX template
 * Razor Template
+
+The templates use Bootstrap 4 but you are free to modifiy the templates to use whatever CSS framework that the skin uses.
+
+### Creating a New Template
 
 The templates are located in the folder `DesktopModules/BtbTweet/Templates`
 To create a new template create a razor file in the folder then in the module settings pick the new file to use to output the data.
