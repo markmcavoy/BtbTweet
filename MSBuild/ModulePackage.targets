@@ -28,6 +28,7 @@
       <InstallInclude Include="**\*.js.map" Exclude="packages\**;node_modules\**;react\**" />
       <InstallInclude Include="**\*.txt"  Exclude="**\obj\**;**\_ReSharper*\**;packages\**;**\.git\**;node_modules\**" />
       <InstallInclude Include="**\imgs\**" Exclude="packages\**;node_modules\**" />
+      <InstallInclude Include="**\images\**" Exclude="packages\**;node_modules\**" />
       
     </ItemGroup>
     
