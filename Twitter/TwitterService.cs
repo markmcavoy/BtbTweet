@@ -143,9 +143,6 @@ namespace BiteTheBullet.BtbTweet.Twitter
                 // Get the response stream  
                 StreamReader reader = new StreamReader(response.GetResponseStream());
 
-                // Console application output  
-                //dynamic json = JsonConvert.DeserializeObject(reader.ReadToEnd());
-                //return json.access_token;
                 dynamic json = JsonConvert.DeserializeObject(reader.ReadToEnd());
                 var twitterResult = new List<TwitterInfo>();
 

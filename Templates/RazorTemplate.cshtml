@@ -51,17 +51,15 @@
                                             </a>
                                         </div>
                                         <div class="col-9">
-                                            <div class="row">
+                                            <div class="d-flex align-items-center">
                                                 <a href="@twitterurl@tweet.TwitterUsername" target="_blank" class="text-dark">
                                                     <p class="mb-0 pr-1">@tweet.ProfileName</p>
                                                 </a>
                                                 <img src="~/DesktopModules/BtbTweet/images/twitter-tick.png" class="tweet-tick @(tweet.Verified == true ? "d-block" : "d-none")" />
                                             </div>
-                                            <div class="row">
-                                                <div class="d-flex">
-                                                    @@
-                                                    <p class="mb-0">@tweet.TwitterUsername</p>
-                                                </div>
+                                            <div class="d-flex">
+                                                @@
+                                                <p class="mb-0">@tweet.TwitterUsername</p>
                                             </div>
                                         </div>
                                     </div>
@@ -80,10 +78,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-xl-7 col-7">
-                                    @tweet.Created
+                                    @tweet.TweetAge
                                 </div>
                                 <div class="col-xl-5 col-5 text-xl-right text-md-left text-right">
-                                    <a href="@twitterurl@tweet.TwitterUsername/status/@tweet.StatusId" target="_blank">Read more</a>
+                                    <a href="@twitterurl@tweet.TwitterUsername/status/@tweet.StatusId" class="btn btn-primary btn-sm" target="_blank">Read more</a>
                                 </div>
                             </div>
 
