@@ -38,11 +38,11 @@
     border-radius: 50%;
 }
 
-.tweet-avatar-pic:hover {
-    opacity: .8;
-}
+    .tweet-avatar-pic:hover {
+        opacity: .8;
+    }
 
 .tweet-tick {
     width: 15px;
-    height: 15px !important;
+    height: 15px;
 }

@@ -1,5 +1,4 @@
-﻿using BiteTheBullet.BtbTweet.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -38,11 +37,6 @@ namespace BiteTheBullet.BtbTweet.Twitter
         public string ProcessedText { get; set; }
 
         public DateTime Created { get; set; }
-
-        public string TweetAge
-        {
-            get => Created.ApproxAge();
-        }
 
         public long StatusId { get; set; }
 

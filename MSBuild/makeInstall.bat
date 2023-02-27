@@ -1,5 +1,5 @@
 
-set msBuildDir="C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\msbuild.exe"
+set msBuildDir="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\msbuild.exe"
 REM package module
 
 

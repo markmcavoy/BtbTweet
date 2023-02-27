@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="BtbTweet" type="Module" version="04.00.01">
+    <package name="BtbTweet" type="Module" version="02.00.00">
       <friendlyName>BtbTweet</friendlyName>
       <description>BtbTweet displays twitter tweets on your portal</description>
       <owner>
