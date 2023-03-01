@@ -2,6 +2,7 @@
 @using System.Linq;
 @using DotNetNuke.Web.Client.ClientResourceManagement;
 @using BiteTheBullet.BtbTweet.WebServices;
+@using BiteTheBullet.BtbTweet.Components;
 
 @inherits DotNetNuke.Web.Razor.DotNetNukeWebPage<dynamic>
 
@@ -11,6 +12,7 @@
 
     var twitterurl = "https://twitter.com/";
 
+    var pinnedTweet = new BtbTweetSettings(Dnn.Module.TabModuleID).PinnedTweet;
 
 }
 
@@ -19,9 +21,7 @@
         <div class="row">
             @foreach (var tweet in tweets)
             {
-
-
-                <div class="col-lg-4 col-md-6 col-12 d-flex align-items-stretch my-3">
+                <div class="twitter-item col-lg-4 col-md-6 col-12 d-flex align-items-stretch my-3 @(tweet.Text.Contains(pinnedTweet) == true ? "pinned" : "")">
                     <div class="card">
                         <div class="card-header">
                             <div class="tweet-avatar">
@@ -42,6 +42,10 @@
                             </div>
                         </div>
                         <div class="tweet-body card-body pb-0">
+                            <div class="pinned-section @(tweet.Text.Contains(pinnedTweet) == true ? "d-flex" : "d-none")">
+                                <i class="fad fa-thumbtack pr-3"></i>
+                                <p>Pinned Tweet</p>
+                            </div>
                             <div class="twitter-user">
                                 <div class="col-12">
                                     <div class="row d-flex align-items-center pb-2">
@@ -51,17 +55,15 @@
                                             </a>
                                         </div>
                                         <div class="col-9">
-                                            <div class="row">
+                                            <div class="d-flex align-items-center">
                                                 <a href="@twitterurl@tweet.TwitterUsername" target="_blank" class="text-dark">
                                                     <p class="mb-0 pr-1">@tweet.ProfileName</p>
                                                 </a>
                                                 <img src="~/DesktopModules/BtbTweet/images/twitter-tick.png" class="tweet-tick @(tweet.Verified == true ? "d-block" : "d-none")" />
                                             </div>
-                                            <div class="row">
-                                                <div class="d-flex">
-                                                    @@
-                                                    <p class="mb-0">@tweet.TwitterUsername</p>
-                                                </div>
+                                            <div class="d-flex">
+                                                @@
+                                                <p class="mb-0">@tweet.TwitterUsername</p>
                                             </div>
                                         </div>
                                     </div>
@@ -80,10 +82,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-xl-7 col-7">
-                                    @tweet.Created
+                                    @tweet.TweetAge
                                 </div>
                                 <div class="col-xl-5 col-5 text-xl-right text-md-left text-right">
-                                    <a href="@twitterurl@tweet.TwitterUsername/status/@tweet.StatusId" target="_blank">Read more</a>
+                                    <a href="@twitterurl@tweet.TwitterUsername/status/@tweet.StatusId" class="" target="_blank">Read more</a>
                                 </div>
                             </div>
 

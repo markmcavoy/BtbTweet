@@ -26,7 +26,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.Common;
@@ -129,6 +128,15 @@ namespace BiteTheBullet.BtbTweet.Components
         {
             get { return ReadSetting<string>("template", "AngularTemplate.cshtml"); }
             set { WriteSetting("template", value); }
+        }
+
+        /// <summary>
+        /// get/set the feautured tweet
+        /// </summary>
+        public string PinnedTweet
+        {
+            get { return ReadSetting<string>("pinnedTweet", "No Pinned Item"); }
+            set { WriteSetting("pinnedTweet", value); }
         }
 
         /// <summary>

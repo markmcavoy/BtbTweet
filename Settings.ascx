@@ -32,6 +32,12 @@
             <asp:DropDownList runat="server" ID="ddlTemplates" />
         </td>
     </tr>
+    <tr>
+        <td class="SubHead" width="150" valign="top"><dnn:label id="lblPinnedTweet" runat="server" controlname="txtPinnedTweet" suffix=":"></dnn:label></td>
+        <td class="tweet-items-dropdown-list">
+            <asp:DropDownList runat="server" ID="ddlPinnedTweet"></asp:DropDownList>
+        </td>
+    </tr>
 </table>
 
 <script type="text/javascript">
@@ -53,6 +59,12 @@
             jQuery("#queryInput").hide();
             jQuery("#usernameInput").show();
         }
+        // cutting dropdwon items to certain amount of characters
+        var string = $('.tweet-items-dropdown-list select option');
+
+        $(string).text(function (index, currentText) {
+            return currentText.substr(0, 120);
+        });
     }
 
 </script>

@@ -133,6 +133,7 @@
     <Compile Include="Components\BtbTweetSettings.cs" />
     <Compile Include="Components\DnnCacheProvider.cs" />
     <Compile Include="Components\RazorUtility.cs" />
+    <Compile Include="Extensions\DateTimeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.ascx.cs">
       <DependentUpon>Settings.ascx</DependentUpon>
@@ -158,25 +159,32 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="eula.html" />
+    <Content Include="images\twitter-tick.png" />
     <Content Include="js\moment.js" />
+    <Content Include="React\index.js" />
+    <Content Include="React\loading.js" />
+    <Content Include="React\tweet.js" />
+    <Content Include="webpack.config.js" />
+    <Content Include="webpack.production.config.js" />
     <Content Include="WebServices\Twitter.asmx" />
+    <Content Include=".babelrc" />
     <None Include="BtbTweet.dnn">
       <SubType>Designer</SubType>
     </None>
     <None Include="build\Module.build" />
     <None Include="build\vars64.bat" />
+    <Content Include="MSBuild\makeInstall.bat" />
+    <Content Include="MSBuild\ModulePackage.targets" />
+    <Content Include="MSBuild\MSBuild.Community.Tasks.Targets" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
     <None Include="packages.config" />
     <Content Include="Templates\AngularTemplate.cshtml" />
     <Content Include="Templates\RazorTemplate.cshtml" />
     <Content Include="Templates\ReactTemplate.cshtml" />
-    <Content Include="web.config" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
+    <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\Settings.ascx.resx">

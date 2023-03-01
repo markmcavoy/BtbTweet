@@ -112,5 +112,23 @@ namespace BiteTheBullet.Modules.BtbTweet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTemplates;
+
+        /// <summary>
+        /// lblPinnedTweet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl lblPinnedTweet;
+
+        /// <summary>
+        /// ddlPinnedTweet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPinnedTweet;
     }
 }
