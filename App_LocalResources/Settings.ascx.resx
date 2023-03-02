@@ -165,4 +165,10 @@
   <data name="rbUserTimeline.Text" xml:space="preserve">
     <value>User Timeline</value>
   </data>
+  <data name="lblPinnedTweet.Help" xml:space="preserve">
+    <value>Allows you to select a pinned tweet to pin to the top of the list of tweets.</value>
+  </data>
+  <data name="lblPinnedTweet.Text" xml:space="preserve">
+    <value>Pinned Tweet</value>
+  </data>
 </root>

@@ -10,6 +10,10 @@ using System.Globalization;
 using System.Linq;
 using DotNetNuke.Instrumentation;
 using System.Dynamic;
+using System.Web.UI.WebControls;
+using BiteTheBullet.Modules.BtbTweet;
+using System.Runtime.CompilerServices;
+using BiteTheBullet.BtbTweet.Components;
 
 namespace BiteTheBullet.BtbTweet.Twitter
 {
@@ -99,9 +103,9 @@ namespace BiteTheBullet.BtbTweet.Twitter
                 var json = JsonConvert.DeserializeObject<IList<TwitterResponseDto>>(data);
                 var twitterResult = new List<TwitterInfo>();
 
+
                 foreach (var item in json)
                 {
-
                     twitterResult.Add(new TwitterInfo()
                     {
                         StatusId = item.id,
@@ -114,7 +118,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
                         RetweetCount = item.retweet_count,
                         FavouriteCount = item.favorite_count,
                         Verified = item.user.verified,
-                        MediaUrl = item.entities?.media?.Select(m => m.media_url)?.ToArray()
+                        MediaUrl = item.entities?.media?.Select(m => m.media_url)?.ToArray(),
                     });
                 }
 

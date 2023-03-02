@@ -12,7 +12,7 @@ namespace BiteTheBullet.BtbTweet.Twitter
         string text;
         string profileImage;
 
-        public string Text 
+        public string Text
         {
             get
             {
@@ -21,16 +21,16 @@ namespace BiteTheBullet.BtbTweet.Twitter
 
             set
             {
-               
+
                 text = value;
-                if(text != null)
+                if (text != null)
                 {
-                     ProcessedText = AddHyperlinks(value);
+                    ProcessedText = AddHyperlinks(value);
                 } else
                 {
                     //do nothing
                 }
-            } 
+            }
         }
 
         public string[] HashTags { get; set; }
@@ -56,15 +56,15 @@ namespace BiteTheBullet.BtbTweet.Twitter
 
         public bool Verified { get; set; }
 
-        public string[] MediaUrl  { get; set; }
+        public string[] MediaUrl { get; set; }
 
         public string ProfileImage {
-            get 
-            { 
-                return profileImage; 
+            get
+            {
+                return profileImage;
             }
 
-            set 
+            set
             {
                 profileImage = value.Replace("http://", "https://");
                 profileImage = value.Replace("_normal", "_400x400");
@@ -80,6 +80,5 @@ namespace BiteTheBullet.BtbTweet.Twitter
             return temp;
 
         }
-
     }
 }

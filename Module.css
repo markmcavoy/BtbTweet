@@ -46,3 +46,7 @@
     width: 15px;
     height: 15px !important;
 }
+
+.tweet-list .twitter-item.pinned {
+    order: -1;
+}
